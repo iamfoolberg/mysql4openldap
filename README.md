@@ -1,10 +1,11 @@
 # mysql4openldap
 
-#build the image
-udo docker build -t berg/sqlldap:v1 .  
+# build the image
+sudo docker build -t berg/sqlldap:v1 .  
 
-#test the iamge
+# test the iamge
 docker volume create ldapconf
+
 docker run -d \
         --name ldap         \
         --net mydockernet \
@@ -21,10 +22,13 @@ docker run -d \
         berg/sqlldap:v1
 
 docker exec -it ldap /bin/bash
+
 ldapsearch -x -b "dc=example,dc=com"
 
-#manual start the ldap service
+## manual start the ldap service
 /opt/openldap/servers/slapd/slapd -d 5 -h 'ldap:/// ldapi:///' -f /etc/openldap/slapd.conf
-#manual kill the service
+
+## manual kill the service
 ps
+
 kill -INT THE-ID-OF-SLAPD
