@@ -2,9 +2,12 @@
 a simple docker for openLDAP uses the mysql backend
 
 # build the image
+```
 sudo docker build -t berg/sqlldap:v1 .  
+```
 
 # test the iamge
+```
 docker volume create ldapconf
 
 docker run -d \
@@ -21,15 +24,20 @@ docker run -d \
         -e 'LDAP_ADMIN_PASSWORD=passme' \
         --mount type=volume,source=ldapconf,destination=/opt/openldap/conf \
         berg/sqlldap:v1
-
+```
+```
 docker exec -it ldap /bin/bash
 
 ldapsearch -x -b "dc=example,dc=com"
-
+```
 ## manual start the ldap service
+```
 /opt/openldap/servers/slapd/slapd -d 5 -h 'ldap:/// ldapi:///' -f /etc/openldap/conf/slapd.conf
+```
 
 ## manual kill the service
+```
 ps
 
 kill -INT THE-ID-OF-SLAPD
+```
