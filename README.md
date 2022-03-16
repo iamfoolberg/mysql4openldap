@@ -1,4 +1,5 @@
 # mysql4openldap
+a simple docker for openLDAP uses the mysql backend
 
 # build the image
 sudo docker build -t berg/sqlldap:v1 .  
