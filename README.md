@@ -27,7 +27,7 @@ docker exec -it ldap /bin/bash
 ldapsearch -x -b "dc=example,dc=com"
 
 ## manual start the ldap service
-/opt/openldap/servers/slapd/slapd -d 5 -h 'ldap:/// ldapi:///' -f /etc/openldap/slapd.conf
+/opt/openldap/servers/slapd/slapd -d 5 -h 'ldap:/// ldapi:///' -f /etc/openldap/conf/slapd.conf
 
 ## manual kill the service
 ps
